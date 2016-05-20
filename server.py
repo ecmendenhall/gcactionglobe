@@ -18,5 +18,5 @@ def hello():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     data = request.get_json()
-    print(data['context']['ip'])
+    print data['context']['ip']
     return data['context']['ip']
