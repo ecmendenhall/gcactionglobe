@@ -28,6 +28,7 @@ def webhook():
     ip = data['context']['ip']
     lat, lon = get_ip_coordinates(ip)
     for socket in WEBSOCKETS:
+        print socket
         socket.send({'lat': lat, 'lon': lon})
     return data['context']['ip']
 
