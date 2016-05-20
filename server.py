@@ -29,7 +29,9 @@ def webhook():
     lat, lon = get_ip_coordinates(ip)
     for socket in WEBSOCKETS:
         print socket
-        socket.send({'lat': lat, 'lon': lon})
+        print socket.closed
+        if not socket.closed:
+            socket.send({'lat': lat, 'lon': lon})
     return data['context']['ip']
 
 @sockets.route('/receive')
