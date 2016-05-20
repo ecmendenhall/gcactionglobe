@@ -33,4 +33,5 @@ def webhook():
 
 @sockets.route('/receive')
 def receive(websocket):
+    print 'Got a connection!'
     WEBSOCKETS.append(websocket)
