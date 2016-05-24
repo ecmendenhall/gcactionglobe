@@ -1,0 +1,18 @@
+{
+  "name": "ls",
+  "authors": [
+    "Li-Hsuan Lung <lihsuan@8thlight.com>",
+    "Bjorn Johnson <bjohnson@8thlight.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
