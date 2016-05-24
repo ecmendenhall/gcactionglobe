@@ -10,7 +10,7 @@ document.onreadystatechange = function() {
   // Note that we're loading a special TopoJSON file
   // (world-110m-withlakes.json) so we can render lakes.
   globe.loadPlugin(planetaryjs.plugins.earth({
-    topojson: { file:   '/world-110m-withlakes.json' },
+    topojson: { file:   '/static/world-110m-withlakes.json' },
     oceans:   { fill:   '#fafafa' },
     land:     { fill:   '#d62027' },
     borders:  { stroke: 'white' }
