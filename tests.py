@@ -19,9 +19,9 @@ class ServerTests(unittest.TestCase):
     def tearDown(self):
         server.WEBSOCKETS = []
 
-    def test_returns_hello_world(self):
+    def test_renders_index_template(self):
         response = self.app.get('/')
-        assert 'Hello world!' in str(response.data)
+        self.assertEqual('200 OK', response.status)
 
     def test_webhook_returns_activity_ip(self):
         response = self.app.post(
@@ -31,15 +31,27 @@ class ServerTests(unittest.TestCase):
         )
         assert self.context_data['context']['ip'] in str(response.data)
 
-    def test_webhook_notifies_websockets(self):
+    def test_webhook_skips_closed_websockets(self):
         fake_websocket = mock.MagicMock()
+        fake_websocket.closed = True
         server.receive(fake_websocket)
         response = self.app.post(
             '/webhook',
             data=self.json,
             content_type='application/json'
         )
-        lat_lon = {'lat': 40.9126, 'lon': -73.8371}
+        fake_websocket.send.assert_not_called()
+
+    def test_webhook_notifies_open_websockets(self):
+        fake_websocket = mock.MagicMock()
+        fake_websocket.closed = False
+        server.receive(fake_websocket)
+        response = self.app.post(
+            '/webhook',
+            data=self.json,
+            content_type='application/json'
+        )
+        lat_lon = json.dumps({'lat': 40.9126, 'lon': -73.8371})
         fake_websocket.send.assert_called_with(lat_lon)
 
 class GeoIPTests(unittest.TestCase):

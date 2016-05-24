@@ -21,7 +21,7 @@ def get_ip_coordinates(ip_address):
 
 @app.route('/')
 def hello():
-    return 'Hello world!'
+    return render_template('index.html')
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -29,14 +29,11 @@ def webhook():
     ip = data['context']['ip']
     lat, lon = get_ip_coordinates(ip)
     for socket in WEBSOCKETS:
-        print socket
-        print socket.closed
         if not socket.closed:
             socket.send(json.dumps({'lat': lat, 'lon': lon}))
     return data['context']['ip']
 
 @sockets.route('/receive')
 def receive(websocket):
-    print 'Got a connection!'
     WEBSOCKETS.append(websocket)
     websocket.receive()
