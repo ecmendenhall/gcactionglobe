@@ -3,7 +3,7 @@ var connection = new WebSocket("wss://boiling-basin-47293.herokuapp.com/receive"
 document.onreadystatechange = function() {
   var globe = planetaryjs.planet();
   // Load our custom `autorotate` plugin; see below.
-  globe.loadPlugin(autorotate(10));
+  globe.loadPlugin(autorotate(3.236));
   // The `earth` plugin draws the oceans and the land; it's actually
   // a combination of several separate built-in plugins.
   //
@@ -52,11 +52,14 @@ document.onreadystatechange = function() {
   };
 
   var canvas = document.getElementById('rotatingGlobe');
+  var context = canvas.getContext('2d');
+  context.canvas.width  = window.innerHeight;
+  context.canvas.height = window.innerHeight;
   // Special code to handle high-density displays (e.g. retina, some phones)
   // In the future, Planetary.js will handle this by itself (or via a plugin).
   if (window.devicePixelRatio == 2) {
-    canvas.width = 800;
-    canvas.height = 800;
+    canvas.width = window.innerHeight;
+    canvas.height = window.innerHeight;
     context = canvas.getContext('2d');
     context.scale(2, 2);
   }
