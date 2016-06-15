@@ -4,6 +4,18 @@
   <script src="/static/bower_components/planetary.js/dist/planetaryjs.js"></script>
   <script src="/static/action_globe_client.js"></script>
   <style>
+    body:after {
+      content: "";
+      opacity: 0.3;
+      background-image: url("http://ux.globalcitizen.org/static/img/festival/brand-campaign_background.png");
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
     .globe-container {
       text-align: center;
     }
@@ -27,7 +39,7 @@
   </div>
   <div class='logo-container'>
     <a href='https://www.globalcitizen.org'>
-      <img alt='Global Citizen logo' src='https://static.globalcitizen.org/static/img/gc_logo.svg'>
+      <img alt='Global Citizen logo' src='https://static-qa.globalcitizen.org/static/img/gc_logo.svg'>
     </a>
   </div>
 </body>

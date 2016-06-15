@@ -3,7 +3,7 @@ var connection = new WebSocket("wss://live.globalcitizen.org/receive");
 document.onreadystatechange = function() {
   var globe = planetaryjs.planet();
   // Load our custom `autorotate` plugin; see below.
-  globe.loadPlugin(autorotate(3.236));
+  globe.loadPlugin(autorotate(1.618 * 3));
   // The `earth` plugin draws the oceans and the land; it's actually
   // a combination of several separate built-in plugins.
   //
@@ -11,13 +11,13 @@ document.onreadystatechange = function() {
   // (world-110m-withlakes.json) so we can render lakes.
   globe.loadPlugin(planetaryjs.plugins.earth({
     topojson: { file:   '/static/world-110m-withlakes.json' },
-    oceans:   { fill:   '#fafafa' },
-    land:     { fill:   '#d62027' },
-    borders:  { stroke: 'white' }
+    oceans:   { fill:   'rgba(255,255,255,0.4)' },
+    land:     { fill:   'rgba(214,32,39,0.8)' },
+    borders:  { stroke: 'rgba(255,255,255,0.2)' }
   }));
   // Load our custom `lakes` plugin to draw lakes; see below.
   globe.loadPlugin(lakes({
-    fill: 'white'
+    fill: 'rgba(255,255,255,0.4)'
   }));
   // The `pings` plugin draws animated pings on the globe.
   globe.loadPlugin(planetaryjs.plugins.pings());
