@@ -1,4 +1,4 @@
-var connection = new WebSocket("wss://boiling-basin-47293.herokuapp.com/receive");
+var connection = new WebSocket("wss://live.globalcitizen.org/receive");
 
 document.onreadystatechange = function() {
   var globe = planetaryjs.planet();
@@ -95,7 +95,7 @@ document.onreadystatechange = function() {
         }
       });
     };
-  };
+  }
 
   // This plugin takes lake data from the special
   // TopoJSON we're loading and draws them on the map.
@@ -121,5 +121,5 @@ document.onreadystatechange = function() {
         });
       });
     };
-  };
+  }
 };
