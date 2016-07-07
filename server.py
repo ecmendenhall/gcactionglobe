@@ -26,6 +26,7 @@ def hello():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     data = request.get_json()
+    print(data)
     ip = data['context']['ip']
     lat, lon = get_ip_coordinates(ip)
     for socket in WEBSOCKETS:
