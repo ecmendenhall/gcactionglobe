@@ -25,8 +25,8 @@ body:after {
 
 .actions-container {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
+  bottom: 2rem;
+  left: 2rem;
   font-size: 3rem;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
@@ -39,14 +39,32 @@ body:after {
 
 .activity-feed-container {
   position: fixed;
-  right: 1rem;
-  top: 1rem;
+  right: 2rem;
+  top: 2rem;
 }
 
 .activity-feed-container ul {
   color: #d62027;
   text-align: left;
   list-style-type: none;
+}
+
+li > img {
+  width: 5rem;
+}
+
+li {
+  margin: 1rem 0;
+}
+
+.logo-container {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+.logo-container img {
+  width: 8rem;
 }
 
 canvas {

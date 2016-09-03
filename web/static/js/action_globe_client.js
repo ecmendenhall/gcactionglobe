@@ -31,7 +31,10 @@ export default function globe() {
       data.new.forEach(
         (activity) => {
           console.log(activity);
-          let item = $(`<li>${ activity.action_title }</li>`);
+          let item = $(`
+            <li class="animated bounceIn">
+              <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
+            </li>`);
           $('#activityFeed').prepend(item);
           $('#activityFeed > li').slice(5).remove();
         }

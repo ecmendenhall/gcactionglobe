@@ -1,10 +1,13 @@
 <div class='globe-container'>
   <canvas id='rotatingGlobe'></canvas>
-  <div class='activity-feed-container draggable'>
-    <ul id='activityFeed'></ul>
-  </div>
   <div class='actions-container draggable'>
     <h1 id='actionsTaken'></h1>
     <div>Actions Taken</div>
+  </div>
+  <div class='activity-feed-container draggable'>
+    <div id='activityFeed'></div>
+  </div>
+  <div class='logo-container draggable'>
+    <img alt='Global Citizen logo' src='https://static-qa.globalcitizen.org/static/img/festival/gc-logo.png'>
   </div>
 </div>
