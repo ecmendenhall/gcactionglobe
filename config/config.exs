@@ -18,9 +18,14 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+city_path =
+  [ __DIR__, "../priv/static/GeoLite2-City.mmdb.gz" ]
+  |> Path.join()
+  |> Path.expand()
+
 config :geolix,
   databases: [
-    {:city,  "https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz"}, # 
+    {:city,  city_path},
   ]
 
 # Import environment specific config. This must remain at the bottom
