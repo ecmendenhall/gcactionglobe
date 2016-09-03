@@ -20,7 +20,7 @@ config :logger, :console,
 
 config :geolix,
   databases: [
-    {:city,  "https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz"},
+    {:city,  "https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz"}, # 
   ]
 
 # Import environment specific config. This must remain at the bottom
