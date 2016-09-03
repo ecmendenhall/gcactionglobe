@@ -32,3 +32,13 @@ config :logger, :console, format: "[$level] $message\n"
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
+
+city_path =
+  [ __DIR__, "../priv/static/GeoLite2-City.mmdb.gz" ]
+  |> Path.join()
+  |> Path.expand()
+
+config :geolix,
+  databases: [
+    {:city,  city_path},
+  ]

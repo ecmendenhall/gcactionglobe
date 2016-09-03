@@ -57,3 +57,8 @@ config :logger, level: :info
 #
 #     config :gcactionglobe, Gcactionglobe.Endpoint, server: true
 #
+
+config :geolix,
+  databases: [
+    {:city,  "/app/priv/static/Geolite2-City.mmdb.gz"},
+  ]
