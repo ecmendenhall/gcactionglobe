@@ -1,0 +1,58 @@
+/* This file is for your main application css. */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body:after {
+  content: "";
+  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("http://ux.globalcitizen.org/static/img/festival/brand-campaign_background.png");
+  background-size: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.globe-container {
+  text-align: center;
+}
+
+.actions-container {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.actions-container h1 {
+    color: #d62027;
+    font-size: 7rem;
+}
+
+.activity-feed-container {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+}
+
+.activity-feed-container ul {
+  color: #d62027;
+  text-align: left;
+  list-style-type: none;
+}
+
+canvas {
+  cursor: move;
+}
+
+.draggable {
+  cursor: move;
+}

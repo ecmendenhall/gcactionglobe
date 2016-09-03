@@ -1,7 +1,25 @@
 {
-  "name": "gcactionglobe",
-  "version": "1.0.0",
+  "repository": {},
+  "license": "MIT",
+  "scripts": {
+    "deploy": "brunch build --production",
+    "watch": "brunch watch --stdin"
+  },
   "dependencies": {
-      "bower": "1.7.9"
+    "d3": "^3",
+    "getstream": "^3.4.1",
+    "jquery": "^3.1.0",
+    "jquery-ui": "^1.12.0",
+    "phoenix": "file:deps/phoenix",
+    "phoenix_html": "file:deps/phoenix_html",
+    "planetary.js": "^1.1.2"
+  },
+  "devDependencies": {
+    "babel-brunch": "~6.0.0",
+    "brunch": "2.7.4",
+    "clean-css-brunch": "~2.0.0",
+    "css-brunch": "~2.0.0",
+    "javascript-brunch": "~2.0.0",
+    "uglify-js-brunch": "~2.0.1"
   }
 }
