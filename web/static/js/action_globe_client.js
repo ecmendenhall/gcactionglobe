@@ -4,6 +4,16 @@ import socket from './socket';
 
 const stream = require('getstream/dist/js/getstream.js');
 
+$.fn.extend({
+  animateCss: function (animationName) {
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    this.addClass('animated ' + animationName).one(animationEnd, function() {
+      $(this).removeClass('animated ' + animationName);
+    });
+  }
+
+});
+
 export default function globe() {
   let activity_channel = socket.channel("activity:*", {})
   activity_channel.join()
@@ -21,7 +31,7 @@ export default function globe() {
   action_channel.on("new_msg", function (data) {
     actions_taken += 1;
     console.log('Actions taken: ', actions_taken);
-    $('#actionsTaken').text(actions_taken.toLocaleString()).addClass('animated fadeIn');
+    $('#actionsTaken').text(actions_taken.toLocaleString()).animateCss('fadeIn');
   });
 
   let stream_client = stream.connect('3x7pjebvreba', null, '2216');
