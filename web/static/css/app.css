@@ -79,6 +79,7 @@ body:after {
   position: fixed;
   left: 5rem;
   top: 5rem;
+  max-width: 40%;
 }
 
 .activity-feed-container ul {

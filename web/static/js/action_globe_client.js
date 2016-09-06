@@ -32,7 +32,7 @@ export default function globe() {
         (activity) => {
           console.log(activity);
           let item = $(`
-            <li class="animated bounceIn">
+            <li class="animated fadeInDown">
                <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
               ${ activity.action_title }
             </li>`);
@@ -59,7 +59,7 @@ export default function globe() {
     // (world-110m-withlakes.json) so we can render lakes.
     globe.loadPlugin(planetaryjs.plugins.earth({
       topojson: { file:   '/json/world-110m-withlakes.json' },
-      oceans:   { fill:   'rgba(255,255,255,0.1)' },
+      oceans:   { fill:   'rgba(40,40,40,0.8)' },
       land:     { fill:   'rgba(255,255,255,0.1)' },
       borders:  { stroke: 'rgba(255,255,255,0)' }
     }));
@@ -88,7 +88,7 @@ export default function globe() {
     globe.projection.scale(height *  0.48).translate([0.65 * width, 0.5 * height]).rotate([0, -15, 0]);
 
     activity_channel.on("new_msg", function (data) {
-      for (var count = 0; count < 3; count++) {
+      for (var count = 0; count < 5; count++) {
         globe.plugins.pings.add(data.lon, data.lat, { color: '#d62027', ttl: 2000, angle: Math.random() * 10 });
       }
     });
