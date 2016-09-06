@@ -46,6 +46,8 @@ export default function globe() {
     );
 
   document.onreadystatechange = function() {
+    let height = window.innerHeight;
+    let width = window.innerWidth;
     var globe = planetaryjs.planet();
     // Load our custom `autorotate` plugin; see below.
     globe.loadPlugin(autorotate(1.618 * 5));
@@ -69,7 +71,7 @@ export default function globe() {
     // The `zoom` and `drag` plugins enable
     // manipulating the globe with the mouse.
     globe.loadPlugin(planetaryjs.plugins.zoom({
-      scaleExtent: [100, 300]
+      scaleExtent: [100, height * 0.5]
     }));
     globe.loadPlugin(planetaryjs.plugins.drag({
       // Dragging the globe should pause the
@@ -81,13 +83,11 @@ export default function globe() {
         this.plugins.autorotate.resume();
       }
     }));
-    let height = window.innerHeight;
-    let width = window.innerWidth;
     // Set up the globe's initial scale, offset, and rotation.
-    globe.projection.scale(height *  0.5).translate([0.5 * width, 0.5 * height]).rotate([0, -15, 0]);
+    globe.projection.scale(height *  0.4).translate([0.5 * width, 0.5 * height]).rotate([0, -15, 0]);
 
     activity_channel.on("new_msg", function (data) {
-      for (var count = 0; count < 6; count++) {
+      for (var count = 0; count < 3; count++) {
         globe.plugins.pings.add(data.lon, data.lat, { color: '#d62027', ttl: 2000, angle: Math.random() * 10 });
       }
     });
@@ -106,7 +106,7 @@ export default function globe() {
     }
     // Draw that globe!
     globe.draw(canvas);
-    
+
     // This plugin will automatically rotate the globe around its vertical
     // axis a configured number of degrees every second.
     function autorotate(degPerSec) {
