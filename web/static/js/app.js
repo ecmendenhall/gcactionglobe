@@ -20,10 +20,8 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-import globe from "./action_globe_client";
+import { globe, feed, counter } from "./action_globe_client";
 
 globe();
-
-$(() => {
-  $('.draggable').draggable();
-})
+feed();
+counter();

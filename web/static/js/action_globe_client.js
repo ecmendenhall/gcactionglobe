@@ -4,22 +4,7 @@ import socket from './socket';
 
 const stream = require('getstream/dist/js/getstream.js');
 
-$.fn.extend({
-  animateCss: function (animationName) {
-    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-    this.addClass('animated ' + animationName).one(animationEnd, function() {
-      $(this).removeClass('animated ' + animationName);
-    });
-  }
-
-});
-
-export default function globe() {
-  let activity_channel = socket.channel("activity:*", {})
-  activity_channel.join()
-    .receive("ok", resp => { console.log("Joined successfully", resp) })
-    .receive("error", resp => { console.log("Unable to join", resp) })
-
+export function counter() {
   var actions_taken = 7334603;
   $('#actionsTaken').text(actions_taken.toLocaleString());
 
@@ -31,9 +16,11 @@ export default function globe() {
   action_channel.on("new_msg", function (data) {
     actions_taken += 1;
     console.log('Actions taken: ', actions_taken);
-    $('#actionsTaken').text(actions_taken.toLocaleString()).animateCss('fadeIn');
+    $('#actionsTaken').text(actions_taken.toLocaleString());
   });
+}
 
+export function feed() {
   let stream_client = stream.connect('3x7pjebvreba', null, '2216');
   let feed = stream_client.feed('action', 'all', 'cN1A9ruNVfksbLfPSK_JdnKE2yw');
   feed.subscribe(
@@ -42,19 +29,26 @@ export default function globe() {
         (activity) => {
           console.log(activity);
           let item = $(`
-            <li class="animated fadeInDown">
-               <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
-              ${ activity.action_title }
-            </li>`);
+                       <li class="animated fadeInDown">
+                       <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
+                       ${ activity.action_title }
+                       </li>`);
           $('#activityFeed').prepend(item);
           $('#activityFeed > li').slice(10).remove();
         }
       )
     }
   ).then(
-      () => { console.log('Connected to Stream successfully'); },
-      (data) => { console.log('Unable to connect to stream', data); }
-    );
+    () => { console.log('Connected to Stream successfully'); },
+    (data) => { console.log('Unable to connect to stream', data); }
+  );
+}
+
+export function globe() {
+  let activity_channel = socket.channel("activity:*", {})
+  activity_channel.join()
+    .receive("ok", resp => { console.log("Joined successfully", resp) })
+    .receive("error", resp => { console.log("Unable to join", resp) })
 
   document.onreadystatechange = function() {
     let height = window.innerHeight;
