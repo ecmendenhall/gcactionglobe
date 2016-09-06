@@ -15,7 +15,6 @@ export function counter() {
 
   action_channel.on("new_msg", function (data) {
     actions_taken += 1;
-    console.log('Actions taken: ', actions_taken);
     $('#actionsTaken').text(actions_taken.toLocaleString());
   });
 }
@@ -23,14 +22,22 @@ export function counter() {
 export function feed() {
   let stream_client = stream.connect('3x7pjebvreba', null, '2216');
   let feed = stream_client.feed('action', 'all', 'cN1A9ruNVfksbLfPSK_JdnKE2yw');
+
+  function icon(type) {
+    if (type === 'quiz') {
+      return "https://static-qa.globalcitizen.org/static/img/issue_icons/education.svg";
+    } else {
+      return `https://static-qa.globalcitizen.org/static/img/action_icon_${ type }.svg`;
+    }
+  }
+
   feed.subscribe(
     (data) => {
       data.new.forEach(
         (activity) => {
-          console.log(activity);
           let item = $(`
             <li class="animated fadeInDown">
-              <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
+              <img src="${ icon(activity.type) }">
               ${ activity.action_title }
             </li>`);
           $('#activityFeed').prepend(item);
@@ -101,8 +108,6 @@ export function globe() {
     var context = canvas.getContext('2d');
     context.canvas.width  = window.innerWidth;
     context.canvas.height = window.innerHeight;
-    console.log(context.canvas.width);
-    console.log(context.canvas.height);
     globe.draw(canvas);
 
     // This plugin will automatically rotate the globe around its vertical

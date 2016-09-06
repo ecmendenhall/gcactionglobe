@@ -79,7 +79,7 @@ body:after {
   position: fixed;
   left: 5rem;
   top: 5rem;
-  max-width: 40%;
+  max-width: 35%;
 }
 
 .activity-feed-container ul {
@@ -98,6 +98,9 @@ li {
   list-style-type: none;
   margin: 1rem 0;
   color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .logo-container {
@@ -107,7 +110,7 @@ li {
 }
 
 .logo-container img {
-  width: 12rem;
+  width: 10rem;
 }
 
 canvas {
