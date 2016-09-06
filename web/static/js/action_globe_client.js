@@ -81,8 +81,10 @@ export default function globe() {
         this.plugins.autorotate.resume();
       }
     }));
+    let height = window.innerHeight;
+    let width = window.innerWidth;
     // Set up the globe's initial scale, offset, and rotation.
-    globe.projection.scale(175).translate([350, 190]).rotate([0, -15, 0]);
+    globe.projection.scale(height *  0.5).translate([0.5 * width, 0.5 * height]).rotate([0, -15, 0]);
 
     activity_channel.on("new_msg", function (data) {
       for (var count = 0; count < 6; count++) {
@@ -94,17 +96,17 @@ export default function globe() {
     var context = canvas.getContext('2d');
     context.canvas.width  = window.innerWidth;
     context.canvas.height = window.innerHeight;
+    console.log(context.canvas.width);
+    console.log(context.canvas.height);
     // Special code to handle high-density displays (e.g. retina, some phones)
     // In the future, Planetary.js will handle this by itself (or via a plugin).
     if (window.devicePixelRatio == 2) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
       context = canvas.getContext('2d');
       context.scale(2, 2);
     }
     // Draw that globe!
     globe.draw(canvas);
-
+    
     // This plugin will automatically rotate the globe around its vertical
     // axis a configured number of degrees every second.
     function autorotate(degPerSec) {

@@ -84,7 +84,6 @@ body:after {
 .activity-feed-container ul {
   color: #d62027;
   text-align: left;
-  list-style-type: none;
 }
 
 li > img {
@@ -92,6 +91,7 @@ li > img {
 }
 
 li {
+  list-style-type: none;
   margin: 1rem 0;
 }
 
