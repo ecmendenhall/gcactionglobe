@@ -21,7 +21,7 @@ export default function globe() {
   action_channel.on("new_msg", function (data) {
     actions_taken += 1;
     console.log('Actions taken: ', actions_taken);
-    $('#actionsTaken').text(actions_taken.toLocaleString());
+    $('#actionsTaken').text(actions_taken.toLocaleString()).addClass('animated fadeIn');
   });
 
   let stream_client = stream.connect('3x7pjebvreba', null, '2216');
