@@ -69,7 +69,7 @@ export function globe() {
     }));
     // Load our custom `lakes` plugin to draw lakes; see below.
     globe.loadPlugin(lakes({
-      fill: 'rgba(255,255,255,0.1)'
+      fill: 'rgba(40,40,40,0.85)'
     }));
     // The `pings` plugin draws animated pings on the globe.
     globe.loadPlugin(planetaryjs.plugins.pings());
