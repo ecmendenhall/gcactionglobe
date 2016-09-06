@@ -5,7 +5,7 @@
     <div>Actions Taken</div>
   </div>
   <div class='activity-feed-container draggable'>
-    <div id='activityFeed'></div>
+    <ul id='activityFeed'></ul>
   </div>
   <div class='logo-container draggable'>
     <img alt='Global Citizen logo' src='https://static-qa.globalcitizen.org/static/img/festival/gc-logo.png'>

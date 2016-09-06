@@ -62,47 +62,51 @@ body:after {
 
 .actions-container {
   position: fixed;
-  bottom: 2rem;
-  left: 2rem;
-  font-size: 3rem;
+  bottom: 5rem;
+  left: 5rem;
+  font-size: 4rem;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .actions-container h1 {
-    font-family: 'MarkWebPro-Heavy-W03-Regular';
-    color: #d62027;
-    font-size: 7rem;
+  font-family: 'MarkWebPro-Heavy-W03-Regular';
+  color: #d62027;
+  font-size: 9rem;
 }
 
 .activity-feed-container {
   position: fixed;
-  right: 2rem;
-  top: 2rem;
+  left: 5rem;
+  top: 5rem;
 }
 
 .activity-feed-container ul {
   color: #d62027;
   text-align: left;
+  font-size: 2rem;
+  line-height: 4rem;
+  padding: 0;
 }
 
 li > img {
-  width: 5rem;
+  width: 4rem;
 }
 
 li {
   list-style-type: none;
   margin: 1rem 0;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .logo-container {
   position: fixed;
-  right: 2rem;
-  bottom: 2rem;
+  right: 5rem;
+  bottom: 5rem;
 }
 
 .logo-container img {
-  width: 8rem;
+  width: 10rem;
 }
 
 canvas {

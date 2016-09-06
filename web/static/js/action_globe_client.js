@@ -33,10 +33,11 @@ export default function globe() {
           console.log(activity);
           let item = $(`
             <li class="animated bounceIn">
-              <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
+               <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
+              ${ activity.action_title }
             </li>`);
           $('#activityFeed').prepend(item);
-          $('#activityFeed > li').slice(5).remove();
+          $('#activityFeed > li').slice(10).remove();
         }
       )
     }
@@ -71,7 +72,7 @@ export default function globe() {
     // The `zoom` and `drag` plugins enable
     // manipulating the globe with the mouse.
     globe.loadPlugin(planetaryjs.plugins.zoom({
-      scaleExtent: [100, height * 1.5]
+      scaleExtent: [100, height * 1.25]
     }));
     globe.loadPlugin(planetaryjs.plugins.drag({
       // Dragging the globe should pause the
@@ -84,7 +85,7 @@ export default function globe() {
       }
     }));
     // Set up the globe's initial scale, offset, and rotation.
-    globe.projection.scale(height *  0.4).translate([0.5 * width, 0.5 * height]).rotate([0, -15, 0]);
+    globe.projection.scale(height *  0.48).translate([0.65 * width, 0.5 * height]).rotate([0, -15, 0]);
 
     activity_channel.on("new_msg", function (data) {
       for (var count = 0; count < 3; count++) {
