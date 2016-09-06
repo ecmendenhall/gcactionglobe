@@ -31,7 +31,7 @@ export function feed() {
           let item = $(`
             <li class="animated fadeInDown">
               <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
-              <a href="${ activity.action_url }">${ activity.action_title }</a>
+              ${ activity.action_title }
             </li>`);
           $('#activityFeed').prepend(item);
           $('#activityFeed > li').slice(10).remove();
