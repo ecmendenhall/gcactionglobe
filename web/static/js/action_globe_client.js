@@ -100,10 +100,10 @@ export default function globe() {
     console.log(context.canvas.height);
     // Special code to handle high-density displays (e.g. retina, some phones)
     // In the future, Planetary.js will handle this by itself (or via a plugin).
-    if (window.devicePixelRatio == 2) {
-      context = canvas.getContext('2d');
-      context.scale(2, 2);
-    }
+    //if (window.devicePixelRatio == 2) {
+      //context = canvas.getContext('2d');
+      //context.scale(2, 2);
+    //}
     // Draw that globe!
     globe.draw(canvas);
 
