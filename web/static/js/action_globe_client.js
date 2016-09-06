@@ -58,7 +58,7 @@ export default function globe() {
       topojson: { file:   '/json/world-110m-withlakes.json' },
       oceans:   { fill:   'rgba(255,255,255,0.1)' },
       land:     { fill:   'rgba(255,255,255,0.1)' },
-      borders:  { stroke: 'rgba(255,255,255,0.1)' }
+      borders:  { stroke: 'rgba(255,255,255,0)' }
     }));
     // Load our custom `lakes` plugin to draw lakes; see below.
     globe.loadPlugin(lakes({

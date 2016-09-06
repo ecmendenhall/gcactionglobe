@@ -1,6 +1,43 @@
 /* This file is for your main application css. */
 
+@font-face {
+    font-family: 'MarkWebPro-Book-W03-Regular';
+    src: url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Book-W03-Regular.eot'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Book-W03-Regular.eot?#iefix') format('embedded-opentype'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Book-W03-Regular.woff') format('woff'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Book-W03-Regular.woff2') format('woff2'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Book-W03-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MarkWebPro-BookItalic-W03-Rg';
+    src: url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-BookItalic-W03-Rg.eot'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-BookItalic-W03-Rg.eot?#iefix') format('embedded-opentype'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-BookItalic-W03-Rg.woff') format('woff'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-BookItalic-W03-Rg.woff2') format('woff2'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-BookItalic-W03-Rg.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MarkWebPro-Heavy-W03-Regular';
+    src: url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Heavy-W03-Regular.eot'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Heavy-W03-Regular.eot?#iefix') format('embedded-opentype'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Heavy-W03-Regular.woff') format('woff'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Heavy-W03-Regular.woff2') format('woff2'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-Heavy-W03-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MarkWebPro-HeavyItalic-W03-Rg';
+    src: url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-HeavyItalic-W03-Rg.eot'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-HeavyItalic-W03-Rg.eot?#iefix') format('embedded-opentype'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-HeavyItalic-W03-Rg.woff') format('woff'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-HeavyItalic-W03-Rg.woff2') format('woff2'),
+    url('https://static.globalcitizen.org/static/css/fonts/MarkWebPro-HeavyItalic-W03-Rg.ttf') format('truetype');
+}
+
 html, body {
+  font-family: 'MarkWebPro-Book-W03-Regular';
   width: 100%;
   height: 100%;
   margin: 0;
@@ -9,7 +46,7 @@ html, body {
 
 body:after {
   content: "";
-  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("http://ux.globalcitizen.org/static/img/festival/brand-campaign_background.png");
+  background: linear-gradient( rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75) ), url("http://ux.globalcitizen.org/static/img/festival/brand-campaign_background.png");
   background-size: cover;
   top: 0;
   left: 0;
@@ -33,6 +70,7 @@ body:after {
 }
 
 .actions-container h1 {
+    font-family: 'MarkWebPro-Heavy-W03-Regular';
     color: #d62027;
     font-size: 7rem;
 }
