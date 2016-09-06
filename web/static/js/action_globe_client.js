@@ -5,7 +5,7 @@ import socket from './socket';
 const stream = require('getstream/dist/js/getstream.js');
 
 export function counter() {
-  var actions_taken = 7334603;
+  var actions_taken = 7369591;
   $('#actionsTaken').text(actions_taken.toLocaleString());
 
   let action_channel = socket.channel("activity:action", {})
@@ -29,10 +29,10 @@ export function feed() {
         (activity) => {
           console.log(activity);
           let item = $(`
-                       <li class="animated fadeInDown">
-                       <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
-                       ${ activity.action_title }
-                       </li>`);
+            <li class="animated fadeInDown">
+              <img src="https://static-qa.globalcitizen.org/static/img/action_icon_${ activity.type }.svg">
+              <a href="${ activity.action_url }">${ activity.action_title }</a>
+            </li>`);
           $('#activityFeed').prepend(item);
           $('#activityFeed > li').slice(10).remove();
         }
@@ -63,7 +63,7 @@ export function globe() {
     // (world-110m-withlakes.json) so we can render lakes.
     globe.loadPlugin(planetaryjs.plugins.earth({
       topojson: { file:   '/json/world-110m-withlakes.json' },
-      oceans:   { fill:   'rgba(40,40,40,0.8)' },
+      oceans:   { fill:   'rgba(40,40,40,0.85)' },
       land:     { fill:   'rgba(255,255,255,0.1)' },
       borders:  { stroke: 'rgba(255,255,255,0)' }
     }));
@@ -103,13 +103,6 @@ export function globe() {
     context.canvas.height = window.innerHeight;
     console.log(context.canvas.width);
     console.log(context.canvas.height);
-    // Special code to handle high-density displays (e.g. retina, some phones)
-    // In the future, Planetary.js will handle this by itself (or via a plugin).
-    //if (window.devicePixelRatio == 2) {
-      //context = canvas.getContext('2d');
-      //context.scale(2, 2);
-    //}
-    // Draw that globe!
     globe.draw(canvas);
 
     // This plugin will automatically rotate the globe around its vertical
