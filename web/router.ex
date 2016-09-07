@@ -2,6 +2,7 @@ defmodule Gcactionglobe.Router do
   use Gcactionglobe.Web, :router
 
   pipeline :browser do
+    plug Plug.SSL
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
@@ -10,7 +11,12 @@ defmodule Gcactionglobe.Router do
   end
 
   pipeline :api do
+    plug Plug.SSL
     plug :accepts, ["json"]
+  end
+
+  scope "/_healthcheck", Gcactionglobe do
+    get "/", HealthcheckController, :check
   end
 
   scope "/", Gcactionglobe do
