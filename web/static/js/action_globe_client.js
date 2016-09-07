@@ -5,7 +5,7 @@ import socket from './socket';
 const stream = require('getstream/dist/js/getstream.js');
 
 export function counter() {
-  var actions_taken = 7369591;
+  var actions_taken = 7396056;
   $('#actionsTaken').text(actions_taken.toLocaleString());
 
   let action_channel = socket.channel("activity:action", {})

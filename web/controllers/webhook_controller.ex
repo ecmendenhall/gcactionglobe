@@ -4,7 +4,6 @@ defmodule Gcactionglobe.WebhookController do
   def webhook(conn, params) do
     event = params["event"]
     ip = params["context"]["ip"]
-    IO.inspect(ip)
     if ip != nil do
       %{city: city} = Geolix.lookup(ip)
       latlon = %{
