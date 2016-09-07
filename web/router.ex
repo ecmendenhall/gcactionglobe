@@ -16,8 +16,7 @@ defmodule Gcactionglobe.Router do
   scope "/", Gcactionglobe do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
-    get "/globe", GlobeController, :index
+    get "/", GlobeController, :index
   end
 
   scope "/api", Gcactionglobe do
