@@ -2,9 +2,7 @@ defmodule Gcactionglobe.Router do
   use Gcactionglobe.Web, :router
 
   pipeline :browser do
-    if Mix.env == 'prod' do
-      plug Plug.SSL, force_ssl: [rewrite_on: [:x_forwarded_proto]]
-    end
+    plug Plug.SSL, force_ssl: [rewrite_on: [:x_forwarded_proto]]
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
@@ -13,9 +11,7 @@ defmodule Gcactionglobe.Router do
   end
 
   pipeline :api do
-    if Mix.env == 'prod' do
-      plug Plug.SSL, force_ssl: [rewrite_on: [:x_forwarded_proto]]
-    end
+    plug Plug.SSL, force_ssl: [rewrite_on: [:x_forwarded_proto]]
     plug :accepts, ["json"]
   end
 
