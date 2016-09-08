@@ -3,7 +3,7 @@ defmodule Gcactionglobe.Router do
 
   pipeline :browser do
     plug Plug.SSL,
-      force_ssl: [rewrite_on: [:x_forwarded_proto]],
+      rewrite_on: [:x_forwarded_proto],
       host: "live.globalcitizen.org"
     plug :accepts, ["html"]
     plug :fetch_session
@@ -14,7 +14,7 @@ defmodule Gcactionglobe.Router do
 
   pipeline :api do
     plug Plug.SSL,
-      force_ssl: [rewrite_on: [:x_forwarded_proto]],
+      rewrite_on: [:x_forwarded_proto],
       host: "live.globalcitizen.org"
     plug :accepts, ["json"]
   end
