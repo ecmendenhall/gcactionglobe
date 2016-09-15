@@ -159,6 +159,7 @@ export function globe() {
           // on its namespace on `planet.plugins`. We're loading a custom
           // TopoJSON file with an object called "ne_110m_lakes".
           var world = planet.plugins.topojson.world;
+          console.log(topojson);
           lakes = topojson.feature(world, world.objects.ne_110m_lakes);
         });
 
