@@ -62,24 +62,22 @@ body:after {
 
 .actions-container {
   position: fixed;
-  bottom: 5rem;
+  top: 5rem;
   left: 5rem;
-  font-size: 4rem;
-  text-transform: uppercase;
-  color: white;
+  max-width: 35%;
 }
 
 .actions-container h1 {
-  font-family: 'MarkWebPro-Heavy-W03-Regular';
   color: #d62027;
   font-size: 9rem;
 }
 
-.activity-feed-container {
-  position: fixed;
-  left: 5rem;
-  top: 5rem;
-  max-width: 35%;
+.actions-counter {
+  font-size: 4rem;
+  text-align: left;
+  text-transform: uppercase;
+  color: white;
+  font-family: 'MarkWebPro-Heavy-W03-Regular';
 }
 
 .activity-feed-container ul {

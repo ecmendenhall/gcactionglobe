@@ -31,17 +31,23 @@ export function feed() {
     }
   }
 
+  function flag(country) {
+    let filename = country.replace(' ', '-');
+    return `https://static-qa.globalcitizen.org/static/img/flags/flat/24/${ filename }.png`;
+  }
+
   feed.subscribe(
     (data) => {
       data.new.forEach(
         (activity) => {
           let item = $(`
             <li class="animated fadeInDown">
+              <img src="${ flag(activity.country) }">
               <img src="${ icon(activity.type) }">
               ${ activity.action_title }
             </li>`);
           $('#activityFeed').prepend(item);
-          $('#activityFeed > li').slice(10).remove();
+          $('#activityFeed > li').slice(3).remove();
         }
       )
     }
@@ -96,7 +102,7 @@ export function globe() {
       }
     }));
     // Set up the globe's initial scale, offset, and rotation.
-    globe.projection.scale(height *  0.48).translate([0.65 * width, 0.5 * height]).rotate([0, -15, 0]);
+    globe.projection.scale(height *  0.48).translate([0.6 * width, 0.5 * height]).rotate([0, -15, 0]);
 
     activity_channel.on("new_msg", function (data) {
       for (var count = 0; count < 5; count++) {

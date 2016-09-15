@@ -23,5 +23,5 @@ import "phoenix_html"
 import { globe, feed, counter } from "./action_globe_client";
 
 globe();
-feed();
+//feed();
 counter();
