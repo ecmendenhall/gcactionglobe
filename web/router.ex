@@ -2,9 +2,9 @@ defmodule Gcactionglobe.Router do
   use Gcactionglobe.Web, :router
 
   pipeline :browser do
-    plug Plug.SSL,
-      rewrite_on: [:x_forwarded_proto],
-      host: "live.globalcitizen.org"
+    #plug Plug.SSL,
+    #  rewrite_on: [:x_forwarded_proto],
+    #  host: "live.globalcitizen.org"
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
@@ -13,9 +13,9 @@ defmodule Gcactionglobe.Router do
   end
 
   pipeline :api do
-    plug Plug.SSL,
-      rewrite_on: [:x_forwarded_proto],
-      host: "live.globalcitizen.org"
+    #plug Plug.SSL,
+    #  rewrite_on: [:x_forwarded_proto],
+    #  host: "live.globalcitizen.org"
     plug :accepts, ["json"]
   end
 
@@ -27,6 +27,7 @@ defmodule Gcactionglobe.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", GlobeController, :index
+    get "/globe", GlobeController, :globe
   end
 
   scope "/api", Gcactionglobe do

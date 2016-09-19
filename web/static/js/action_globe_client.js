@@ -57,7 +57,7 @@ export function feed() {
   );
 }
 
-export function globe() {
+export function globe(opts={}) {
   let activity_channel = socket.channel("activity:*", {})
   activity_channel.join()
     .receive("ok", resp => { console.log("Joined successfully", resp) })
@@ -101,8 +101,9 @@ export function globe() {
         this.plugins.autorotate.resume();
       }
     }));
+    let widthTranslation = opts.widthTranslation || 0.6;
     // Set up the globe's initial scale, offset, and rotation.
-    globe.projection.scale(height *  0.48).translate([0.6 * width, 0.5 * height]).rotate([0, -15, 0]);
+    globe.projection.scale(height *  0.48).translate([widthTranslation * width, 0.5 * height]).rotate([0, -15, 0]);
 
     activity_channel.on("new_msg", function (data) {
       for (var count = 0; count < 5; count++) {

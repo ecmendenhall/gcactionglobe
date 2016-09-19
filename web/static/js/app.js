@@ -22,6 +22,6 @@ import "phoenix_html"
 // import socket from "./socket"
 import { globe, feed, counter } from "./action_globe_client";
 
-globe();
-//feed();
-counter();
+window.globe = globe;
+window.feed = feed;
+window.counter = counter;

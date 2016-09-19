@@ -1,18 +1,11 @@
 <div class='globe-container'>
   <canvas id='rotatingGlobe'></canvas>
-  <div class='actions-container'>
-    <div class='actions-counter'>
-      <h1 id='actionsTaken'></h1>
-      <div>Actions Taken</div>
-    </div>
-  </div>
   <div class='logo-container'>
     <img alt='Global Citizen logo' src='https://static-qa.globalcitizen.org/static/img/festival/gc-logo.png'>
   </div>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    globe();
-    counter();
+    globe({widthTranslation: 0.5});
   });
 </script>
