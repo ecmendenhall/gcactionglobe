@@ -5,13 +5,13 @@ import socket from './socket';
 const stream = require('getstream/dist/js/getstream.js');
 
 export function counter() {
-  var actions_taken = 7396056;
+  var actions_taken = 10131018;
   $('#actionsTaken').text(actions_taken.toLocaleString());
 
-  let action_channel = socket.channel("activity:action", {})
+  let action_channel = socket.channel("activity:action", {});
   action_channel.join()
     .receive("ok", resp => { console.log("Joined successfully", resp) })
-    .receive("error", resp => { console.log("Unable to join", resp) })
+    .receive("error", resp => { console.log("Unable to join", resp) });
 
   action_channel.on("new_msg", function (data) {
     actions_taken += 1;
