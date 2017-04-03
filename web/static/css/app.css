@@ -118,3 +118,7 @@ canvas {
 .draggable {
   cursor: move;
 }
+
+.hidden {
+  display: none;
+}

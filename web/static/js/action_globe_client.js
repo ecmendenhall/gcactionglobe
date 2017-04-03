@@ -5,17 +5,20 @@ import socket from './socket';
 const stream = require('getstream/dist/js/getstream.js');
 
 export function counter() {
-  var actions_taken = 10131018;
-  $('#actionsTaken').text(actions_taken.toLocaleString());
+  $.get('/api/count').then((data) => {
+    var actions_taken = data.total_actions_taken;
+    $('#actionsTaken').text(actions_taken.toLocaleString());
+    $('#actionsCounter').removeClass('hidden');
 
-  let action_channel = socket.channel("activity:action", {});
-  action_channel.join()
+    let action_channel = socket.channel("activity:action", {});
+    action_channel.join()
     .receive("ok", resp => { console.log("Joined successfully", resp) })
     .receive("error", resp => { console.log("Unable to join", resp) });
 
-  action_channel.on("new_msg", function (data) {
-    actions_taken += 1;
-    $('#actionsTaken').text(actions_taken.toLocaleString());
+    action_channel.on("new_msg", function (data) {
+      actions_taken += 1;
+      $('#actionsTaken').text(actions_taken.toLocaleString());
+    });
   });
 }
 

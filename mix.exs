@@ -17,7 +17,7 @@ defmodule Gcactionglobe.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Gcactionglobe, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :geolix]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :geolix, :httpotion]]
   end
 
   # Specifies which paths to compile per environment.
@@ -34,7 +34,8 @@ defmodule Gcactionglobe.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:geolix, "~> 0.10"}
+     {:geolix, "~> 0.10"},
+     {:httpotion, "~> 3.0.2"}
     ]
   end
 end

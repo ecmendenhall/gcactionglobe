@@ -32,6 +32,7 @@ defmodule Gcactionglobe.Router do
 
   scope "/api", Gcactionglobe do
     pipe_through :api
+    get "/count", ActionCountController, :load_action_count
     post "/webhook", WebhookController, :webhook
   end
 end
