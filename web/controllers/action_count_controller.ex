@@ -6,7 +6,7 @@ defmodule Gcactionglobe.ActionCountController do
     secret = System.get_env("LOOKER_CLIENT_SECRET")
     %HTTPotion.Response{body: body} = HTTPotion.post(
       "https://globalcitizen.looker.com:19999/login",
-      [body: "client_id=#{ id }&client_secret=#{ secret }"]
+      [body: "client_id=#{ id }&client_secret=#{ secret }", timeout: 10_000]
     )
     body_data = Poison.decode!(body)
     body_data["access_token"]
@@ -15,7 +15,7 @@ defmodule Gcactionglobe.ActionCountController do
   def india_action_count(token) do
     response = HTTPotion.get(
       "https://globalcitizen.looker.com:19999/api/3.0/looks/1351/run/json" ,
-      [headers: ["Authorization": "token #{token}"]]
+      [headers: ["Authorization": "token #{token}"], timeout: 10_000]
     )
     body_data = Poison.decode!(response.body)
     [india_action_count_data] = body_data
@@ -25,7 +25,7 @@ defmodule Gcactionglobe.ActionCountController do
   def global_action_count(token) do
     response = HTTPotion.get(
       "https://globalcitizen.looker.com:19999/api/3.0/looks/1517/run/json" ,
-      [headers: ["Authorization": "token #{token}"]]
+      [headers: ["Authorization": "token #{token}"], timeout: 10_000]
     )
     body_data = Poison.decode!(response.body)
     [global_action_count_data] = body_data
